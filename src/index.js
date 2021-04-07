@@ -6,6 +6,14 @@
 const url = 'https://platzi-avo.vercel.app/api/avo'
 const urlbase= 'https://platzi-avo.vercel.app/'
 const appNode = document.querySelector('div#app')
+
+//delegación de eventos escucha los eventos de todo un bloque y lo discrimina segun la etiqueta de un target 
+const mensajeAlClick= (event) => {
+    if (event.target.nodeName==='H2'){
+        window.alert(`¿Vas a llevar un aguacate?`)};}
+
+appNode.addEventListener('click',mensajeAlClick)
+
 const formatPrice = (price) => {
     const nuevoPrecio= new window.Intl.NumberFormat('es-CO',{
         style:'currency',
@@ -15,6 +23,8 @@ const formatPrice = (price) => {
 };
 //intl api de internacionalización
 //2 formato a monedas
+
+
 
 //web api
 //conectarnos al servidor
@@ -35,6 +45,7 @@ window
             imagen.src= `${urlbase}/${item.image}`
             imagen.className ="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6";
             
+            
             //crear el título
             const title = document.createElement('h2');
             document.body.appendChild(title);
@@ -42,7 +53,7 @@ window
             title.className= 'text-lg  font-bold'; //mejor forma
             //title.style= 'font-size: 2rem' forma alternativa 1
             //title.style.fontSize='2rem'   forma alternativa 2
-            
+                 
             //hardiness
             const robustez = document.createElement('p');
             document.body.appendChild(robustez);
