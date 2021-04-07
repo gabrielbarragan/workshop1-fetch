@@ -43,6 +43,13 @@ window
             //title.style= 'font-size: 2rem' forma alternativa 1
             //title.style.fontSize='2rem'   forma alternativa 2
             
+            //hardiness
+            const robustez = document.createElement('p');
+            document.body.appendChild(robustez);
+            robustez.textContent=`Hardiness: ${item.attributes.hardiness}`;
+            robustez.className= 'text-md';
+
+
             //crear el precio
             const price = document.createElement('div');
             document.body.appendChild(price);
@@ -55,6 +62,8 @@ window
             priceAndTitle.className = "text-center md:text-left";
             priceAndTitle.appendChild(title);
             priceAndTitle.appendChild(price);
+            priceAndTitle.appendChild(robustez)
+            
 
              // Wrap Img and priceAndTitle
              // <div class="md:flex bg-white rounded-lg p-6">
@@ -63,7 +72,8 @@ window
             card.appendChild(imagen);
             card.appendChild(priceAndTitle);
 
-            
+            const body= document.querySelector("body")
+            body.className=("bg-green-900");
 
             const contenedor= document.createElement('div');
             contenedor.append(card);
