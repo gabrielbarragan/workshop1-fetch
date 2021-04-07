@@ -1,4 +1,5 @@
 {
+  "homepage": "https://github.com/gabrielbarragan/workshop1-fetch",
   "scripts": {
     "prepare": "husky install",
     "start": "snowpack dev",

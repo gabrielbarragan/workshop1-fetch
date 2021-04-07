@@ -28,6 +28,7 @@ window
         const todosLosItems=[];//crea el array para reducir la cantidad de operaciones en el dom
         
         respuestaJson.data.forEach((item)=> {
+            appNode.className= "grid gap-4 grid-cols-3 pt-6"
             //crear la imagen
             const imagen = document.createElement('img');
             document.body.appendChild(imagen);
@@ -38,7 +39,7 @@ window
             const title = document.createElement('h2');
             document.body.appendChild(title);
             title.textContent=item.name;
-            title.className= 'text-lg text-red-600'; //mejor forma
+            title.className= 'text-lg  font-bold'; //mejor forma
             //title.style= 'font-size: 2rem' forma alternativa 1
             //title.style.fontSize='2rem'   forma alternativa 2
             
@@ -48,9 +49,26 @@ window
             price.textContent=formatPrice(item.price);
             price.className= 'text-gray-600';
 
-            const contenedor = document.createElement('div');
-            contenedor.append(imagen, title, price); //reduce la cantidad de operaciones
+            // Wrap price & title
+            // <div class="text-center md:text-left"><price ><title ></div>
+            const priceAndTitle = document.createElement("div");
+            priceAndTitle.className = "text-center md:text-left";
+            priceAndTitle.appendChild(title);
+            priceAndTitle.appendChild(price);
+
+             // Wrap Img and priceAndTitle
+             // <div class="md:flex bg-white rounded-lg p-6">
+            const card = document.createElement("div");
+            card.className = "md:flex bg-white rounded-lg p-6 hover:bg-gray-300 shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-80 cursor-pointer ";
+            card.appendChild(imagen);
+            card.appendChild(priceAndTitle);
+
+            
+
+            const contenedor= document.createElement('div');
+            contenedor.append(card);
             todosLosItems.push(contenedor);
+
     
         });
         appNode.append(...todosLosItems);
