@@ -5,6 +5,8 @@ module.exports = {
     src: '/_dist_',
   },
   buildOptions: {
-    baseUrl: '',
+    baseUrl: 'https://gabrielbarragan.github.io/workshop1-fetch',
   },
 }
+
+
